@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2015.3.1111/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/jquery-ui-git.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic' rel='stylesheet' type='text/css'>
+ <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+     <script src="validation.js"></script>
+    <link  rel="stylesheet" href="Validation.css" >
+    </head>
+    <body>
+        <div id="main_content">
+    <div class="content_module">
+        <div class="registration-form">
+            <div class="container">
+                <div class="row">
+                    <div class="box-registration col-lg-offset-2 col-lg-8 col-md-offset-1 col-md-10 col-sm-offset-1 col-sm-10 col-xs-offset-1 col-xs-10">
+                        <header>Register</header>
+                        <form id="cspw-register-form">
+                            <div class="form-group">
+                                <input class="form-control register-form-input" id="firstName" name="firstName" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control register-form-input" id="lastName" name="lastName" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control register-form-input" id="Email" name="Email" placeholder="Email Address">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control register-form-input" id="Company" name="Company" placeholder="Company Name">
+                            </div>
+                            <div class="form-group">
+                                <select name="IndustryRole" id="CompanyType" class="form-control register-form-input select-form" required>
+                                    <option value="" selected="selected" style="display:none">---Company Type---</option>
+                                </select>
+                            </div>
+                            <div class="address-container">
+                                <div class="form-group address-city">
+                                    <input type="text" class="form-control register-form-input" id="city" name="city" placeholder="City">
+                                </div>
+                                <div class="form-group address-state">
+                                    <select id="StateDropDown" name="StateDropDown" class="form-control register-form-input" required>
+                                        <option value="" selected="selected" style="display:none">--State--</option>
+                                    </select>
+                                </div>
+                                <div class="form-group address-state">
+                                    <input type="text" class="form-control register-form-input " id="PostalCode" name="PostalCode" placeholder="Zip Code">
+                                </div>
+                            </div>
+                            <div>
+                                <div class="form-group width50 pull-left">
+                                    <input type="tel" class="form-control register-form-input" id="Telephone" name="Telephone" placeholder="Phone Number" maxlength="10">
+
+                                    <input type="password" class="form-control register-form-input" id="password" pattern=".{8,}" name="password" placeholder="Password">
+
+                                    <input type="password" class="form-control register-form-input" id="confirmPassword" name="confirmPassword" placeholder="Confirm Passsword">
+                                </div>
+                                <div class="form-group width50 pull-right hidden-xs">
+                                    <div class="well " id="passwordHint">
+                                        <header>Password Criteria</header>
+                                        <label>8 Characters in length and contains at least</label>
+                                        <label>1 upper case letter</label>
+                                        <label>1 lower case letter</label>
+                                        <label>1 number</label>
+                                        <label>1 special character '$&+@#+%!-='</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="securityQuestion-container">
+                                <div class="form-group width50">
+                                    <select name="SecurityQuestion" id="SecurityQuestion" class="form-control register-form-input select-form" required>
+                                        <option value="" selected="selected" style="display:none">---Security Question---</option>
+                                    </select>
+                                </div>
+                                <div class="form-group width50">
+                                    <input type="text" class="form-control register-form-input" id="SecurityQuestionAnswer" name="SecurityQuestionAnswer" placeholder="Answer Security Question" required>
+                                </div>
+                            </div>
+                           
+                            <div class="checkbox tc-checkBox">
+                                <label>
+                                    <input id="TermsAndConditions" type="checkbox" name="TermsAndConditions" value="1" required><label for="TermsAndConditions"> Terms and Conditions</label><br />
+                                    <muted> Read and accept the Terms and Conditions to complete registration.</muted>
+                                </label>
+                            </div>
+                            <label id="lblFormError" class="fieldError" style="display:none;"></label>
+                            <div class="btn-registration pull-right">
+                                <button id="btnCancelRegistration" type="button" class="btn  btn-default-color">Cancel</button>
+                                <button id="btnSubmitRegistrationForm" type="submit" class="btn btn-default-color" disabled="disabled">
+                                    <img id="registrationFormProcessing" src="~/Content/img/loading-bar-fff.gif" class="formLoader" style="display:none;" />
+                                    Submit
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="dialog-message" style="display: none" class="tc-PopUpBox">
+    <div class="col-md-11 col-sm-11 col-xs-11 col-lg-11">
+        <div class="tc-PopUpBox-window">
+            <header>Terms and Conditions</header>
+            <div class="tc-PopUpBox-content">
+               
+            </div>
+            <div class="tc-PopUpBox-action">
+                <div class="col-md-5 col-sm-4 col-xs-12" >
+                <label id="btnTermsAndConditionsHide">Return To Registration Form</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12" >
+                    <label id="btnTermsAndConditionsPrint" >Print</label>
+                </div>
+                <div class="col-md-2 col-sm-2 col-xs-12">
+                    <label  id="btnTermsAndConditionsDeclined" class="pull-right">Decline</label>
+                </div>
+                <div class="col-md-3 col-sm-3 col-xs-12">
+                    <label id="btnTermsAndConditions" class="btn btn-default-color pull-right ">Accept</label>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+        
+        <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+.box-registration > header{
+    font-size: 48px;
+    text-align: center;
+    color:#F9690E;
+    
+}
+.content_module{
+   background-color: #FFF;
+}
+#cspw-register-form{
+    border: 1px solid #F89406;
+    border-radius: 8px;
+     background-color: #F89406;
+    box-shadow: 5px 5px 6px #F89406;
+    padding: 10px;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content:flex-start;
+    flex-direction: column;
+    justify-content: center;
+}
+.form-group{
+    align-content: space-around;
+    align-items: center;
+}
